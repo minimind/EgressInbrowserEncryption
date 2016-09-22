@@ -58,7 +58,11 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(function(sdk){
 				//event.composeView.insertTextIntoBodyAtCursor('Hello World!');
 			},
 		});
-
+		composeView.on('presending', function(event) {
+			// Cancel sending event
+			event.cancel();
+		});
+		
 	});
 	
 }
