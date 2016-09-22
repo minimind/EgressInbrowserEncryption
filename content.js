@@ -59,7 +59,7 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(function(sdk){
 			},
 		});
 		composeView.on('presending', function(event) {
-			// Cancel sending event
+			window.console("this is pre-sending event");
 			event.cancel();
 		});
 		
