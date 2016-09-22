@@ -60,5 +60,17 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(function(sdk){
 		});
 
 	});
+	
+}
 
-});
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+	if( request.message === "clicked_browser_action" ) {
+	  var firstHref = $("a[href^='http']").eq(0).attr("href");
+
+	  console.log(firstHref);
+	}
+  }
+);
+
+);

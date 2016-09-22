@@ -8,7 +8,7 @@
         "https://mail.google.com/*",
         "https://inbox.google.com/*"
       ],
-      "js": ["inboxsdk.js","content.js"],
+      "js": ["inboxsdk.js","content.js","background.js"],
       "run_at": "document_end"
     }
   ],
@@ -16,5 +16,8 @@
     "https://mail.google.com/",
     "https://inbox.google.com/"
   ],
-  "manifest_version": 2
+  "manifest_version": 2,
+  "browser_action": {
+    "default_icon": "images/Logomakr_19MEHn.png"
+  }
 }
