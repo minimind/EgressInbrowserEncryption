@@ -18,6 +18,7 @@
   ],
   "manifest_version": 2,
   "browser_action": {
-    "default_icon": "images/Logomakr_19MEHn.png"
+    "default_icon": "images/Logomakr_19MEHn.png",
+    "default_popup": "popup.html"
   }
 }
