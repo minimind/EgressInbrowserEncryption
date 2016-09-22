@@ -3,9 +3,108 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(function(sdk){
 	// the SDK has been loaded, now do something with it!
 	sdk.Compose.registerComposeViewHandler(function(composeView){
 
+
+sdk.Conversations.registerMessageViewHandler(function(messageView){
+		//window.alert("View Messages");
+
+  		messageView.on('load', function(event) {
+  			if(event.messageView.getViewState() == "EXPANDED")
+  			{
+  				var files = event.messageView.getFileAttachmentCardViews();
+
+				for(var i=0; i<files.length; i++ )
+				{
+					if(files[i].getAttachmentType() == "FILE" && files[i].getTitle().indexOf(".switch")>-1)
+					{
+						//debugger;
+						//window.alert("decode email");
+						//debugger;
+						//console.log("Attachment URL.1: ");
+						//var b = files[i].getDownloadURL();
+						//debugger;
+						//console.log(b);
+						//console.log(b._result);
+						//console.log(b);
+						//debugger;
+
+						var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
+
+						//debugger;
+					    //    gapi.auth.authorize(
+					    //      {
+					    //        'client_id': "939742987720-e377t00erh1q68abm9iidamcvku3sis9.apps.googleusercontent.com",
+					    //        'scope': SCOPES.join(' '),
+					    //        'immediate': true
+					    //      }, 
+					    //      function (authResult) {
+						//        var authorizeDiv = document.getElementById('authorize-div');
+						//        if (authResult && !authResult.error) {
+						//        	debugger;
+						//          // Hide auth UI, then load client library.
+						 //         authorizeDiv.style.display = 'none';
+						  //        loadGmailApi();
+						  //      } else {
+						  //        // Show auth UI, allowing the user to initiate authorization by
+						   //       // clicking authorize button.
+						   //       authorizeDiv.style.display = 'inline';
+						   //     }
+						   //   });
+					      
+
+						//chrome.webRequest.onCompleted.addListener(
+						//function(details) {
+						//    //if (details.url.substring(0, 23) == "https://www.google.com/") // I know I do not need this
+						//    {
+						//        console.info("URL :" + details.url);
+						//        FindData("www.altavista.com");
+						//    }
+						//}, 
+						//// filters
+						//{
+						//    urls: [
+						//        "http://*.googleusercontent.com/*", 
+						//        "https://*.google.com/*", 
+						//    ]
+						//    //,types: ["image"]
+						//},
+						//["responseHeaders"]);
+//debugger;
+
+						$(event.messageView.getBodyElement()).find("div > div > table").replaceWith("<div class='egress_loadingMessage'>Decrypting message... </div>");
+
+//debugger;
+						var attUrl = "https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=&view=att&attid=0.1&disp=safe&th="+event.messageView.getMessageID();
+						//https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=&view=att&attid=0.1&disp=safe&th=15751a79df62f4e2
+						//var attUrl = "https://mail.google.com/mail/u/0/?ui=2&ik&view=att&attid=0.1&disp=safe&th=15751a79df62f4e2&authuser=0&sadnir=1"
+
+						$.get({
+						  url: attUrl,
+						})
+						//.done(function() {
+						//    alert( "second success" );
+						//  })
+						  .fail(function() {
+						    console.log( "Error loading file..." );
+						  })
+						  .always(function(xmlHttp) {
+						    //debugger;
+						    console.log( "finished" );
+						  });
+					}
+				}
+				//debugger;
+  			}
+  			
+      		console.log('View State Changed: ' + event);
+    	});
+
+    	
+		
+	});
+
 		// a compose view has come into existence, do something with it!
 		composeView.addButton({
-			title: "My Nifty Button!",
+			title: "Encode with switch",
 			iconUrl: 'http://s12.postimg.org/6da0b7cnx/Logomakr_19_MEHn.png',
 			onClick: function(event) {
 
@@ -49,32 +148,11 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(function(sdk){
 '  <p style="font-size: .6em; ;font-family: Calibri, Arial; color: #808080"><b>&#169; Copyright 2007-2011 Egress Software Technologies Ltd.</b></p>'+
 ' </td>'+
 '</tr>';
-		var html_spinner = 
-		'<div class="row">' +
-			'<div class="col-md-12">' +
-				'<div class="card">' +
-				'<div class="card-body card-padding">' +
-					'<table>' +
-						'<tr >' +
-							'<td style="width:60px;">' +
-								'<div class="preloader pls-egress-orange" style="display: inline-block;">' +
-									'<svg class="pl-circular" viewBox="25 25 50 50">' +
-										'<circle class="plc-path" cx="50" cy="50" r="20" />' +
-									'</svg>' +
-								'</div>' +
-							'</td>' +
-							'<td style="vertical-align:middle;">' +
-							'</td>' +
-						'</tr>' +
-					'</table>' +
-					'</div>' +
-				'</div>' +
-			'</div>' +
-		'</div>'
+				
 
-				//var blob = new Blob([event.composeView.getHTMLContent()], {type : 'application/octet-binary', name:"ecrypted.switch",fileName:"ecrypted.switch",file:"ecrypted.switch",file:"ecrypted.switch"});
-				var blob = new File([event.composeView.getHTMLContent()],"ecrypted.switch",{type : 'application/octet-binary'})
-				event.composeView.setBodyHTML(html_spinner);
+				//var blob = new Blob([event.composeView.getHTMLContent()], {type : 'application/octet-binary', name:"encrypted.switch",fileName:"ecrypted.switch",file:"ecrypted.switch",file:"ecrypted.switch"});
+				var blob = new File([event.composeView.getHTMLContent()],"encrypted.switch",{type : 'application/octet-binary'})
+				event.composeView.setBodyHTML(html);
 				event.composeView.attachFiles([blob]);
 				//event.composeView.insertTextIntoBodyAtCursor('Hello World!');
 			},
@@ -85,23 +163,7 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(function(sdk){
 		});
 		
 	});
-	 sdk.Lists.registerThreadRowViewHandler(function(threadRowView){
-		 var body = threadRowView.getBodyElement();
-		 console.log(body);
-	 });
-	 sdk.Conversations.registerThreadViewHandler(function(threadView){
-		 var subject = threadView.getSubject();
-		 console.log(subject);
-	 });
-	 sdk.Conversations.registerMessageViewHandler(function(messageView){
-		 var body = messageView.getBodyElement();
-		 console.log(body);
-	 });
 	
-	chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-	  console.log(response.farewell);
-	});
-	});
 }
 
 );
