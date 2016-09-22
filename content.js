@@ -88,6 +88,7 @@ sdk.Conversations.registerMessageViewHandler(function(messageView){
 						  })
 						  .always(function(xmlHttp) {
 						    //debugger;
+							  console.log(xmlHttp);
 						    console.log( "finished" );
 						  });
 					}
@@ -159,7 +160,7 @@ sdk.Conversations.registerMessageViewHandler(function(messageView){
 		});
 		composeView.on('presending', function(event) {
 			console.log("this is pre-sending event");
-			event.cancel();
+			//event.cancel();
 		});
 		
 	});

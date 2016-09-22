@@ -12,18 +12,17 @@
       "run_at": "document_end"
     }
   ],
-   "permissions": [
-    "webRequest",
-    "webRequestBlocking",
-    "identity",
-    "*://*.google.com/*"
-  ],
   "background": {
     "scripts": ["base64.js", "background.js"]
   },
   "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "identity",
+    "*://*.google.com/*",
     "https://mail.google.com/",
-    "https://inbox.google.com/"
+    "https://inbox.google.com/",
+    "https://mail-attachment.googleusercontent.com/attachment/*"
   ],
   "manifest_version": 2,
   "browser_action": {
