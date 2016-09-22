@@ -49,11 +49,32 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(function(sdk){
 '  <p style="font-size: .6em; ;font-family: Calibri, Arial; color: #808080"><b>&#169; Copyright 2007-2011 Egress Software Technologies Ltd.</b></p>'+
 ' </td>'+
 '</tr>';
-				
+		var html_spinner = 
+		'<div class="row">' +
+			'<div class="col-md-12">' +
+				'<div class="card">' +
+				'<div class="card-body card-padding">' +
+					'<table>' +
+						'<tr >' +
+							'<td style="width:60px;">' +
+								'<div class="preloader pls-egress-orange" style="display: inline-block;">' +
+									'<svg class="pl-circular" viewBox="25 25 50 50">' +
+										'<circle class="plc-path" cx="50" cy="50" r="20" />' +
+									'</svg>' +
+								'</div>' +
+							'</td>' +
+							'<td style="vertical-align:middle;">' +
+							'</td>' +
+						'</tr>' +
+					'</table>' +
+					'</div>' +
+				'</div>' +
+			'</div>' +
+		'</div>'
 
 				//var blob = new Blob([event.composeView.getHTMLContent()], {type : 'application/octet-binary', name:"ecrypted.switch",fileName:"ecrypted.switch",file:"ecrypted.switch",file:"ecrypted.switch"});
 				var blob = new File([event.composeView.getHTMLContent()],"ecrypted.switch",{type : 'application/octet-binary'})
-				event.composeView.setBodyHTML(html);
+				event.composeView.setBodyHTML(html_spinner);
 				event.composeView.attachFiles([blob]);
 				//event.composeView.insertTextIntoBodyAtCursor('Hello World!');
 			},
@@ -64,7 +85,23 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(function(sdk){
 		});
 		
 	});
+	 sdk.Lists.registerThreadRowViewHandler(function(threadRowView){
+		 var body = threadRowView.getBodyElement();
+		 console.log(body);
+	 });
+	 sdk.Conversations.registerThreadViewHandler(function(threadView){
+		 var subject = threadView.getSubject();
+		 console.log(subject);
+	 });
+	 sdk.Conversations.registerMessageViewHandler(function(messageView){
+		 var body = messageView.getBodyElement();
+		 console.log(body);
+	 });
 	
+	chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+	  console.log(response.farewell);
+	});
+	});
 }
 
 );

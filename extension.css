@@ -1,0 +1,25 @@
+html:not(.ismobile) .loader .preloader { /*page-loader is original class, I cannot use it because there is window.load event which will hide loader after page is loaded, TODO: add task to JIRA to add class to the main theme*/
+	width: 50px;
+	position: absolute;
+	left: 50%;
+	margin-left: -25px;
+	top: 50%;
+	margin-top: -55px;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+	-webkit-animation-duration: 3000ms;
+	animation-duration: 3000ms;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+html:not(.ismobile) .loader .preloader p { /*page-loader is original class, I cannot use it because there is window.load event which will hide loader after page is loaded, TODO: add task to JIRA to add class to the main theme*/
+	white-space: nowrap;
+	position: relative;
+	left: -9px;
+	top: 22px;
+	color: #CCC;
+}
+.preloader.pls-egress-orange .plc-path {
+    stroke: #f63;
+}
