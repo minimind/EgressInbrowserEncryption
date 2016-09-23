@@ -10,7 +10,7 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(sdk => {
                             const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
 
                             $(event.messageView.getBodyElement()).find("div > div > table").
-                                replaceWith("<div class='egress_loadingMessage'>Decrypting message... </div>");
+                                replaceWith(loading_message);
 
                             files[i].getDownloadURL().then(e => {
                                 $.get({
