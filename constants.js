@@ -45,3 +45,21 @@ const switch_decrypt_header = `<div class="egress_loadingMessage" style="padding
 <p align="center" style="margin-bottom:.0001pt;text-align:center">
     <span style='font-size:10.0pt;font-family:"Arial","sans-serif";color:white'>This email, created by [[SWITCHID]], has been securely delivered using Egress Switch and was decrypted on [[DECRYPTED]]</span>
 </p></td></tr></table></div>`;
+
+
+const loading_message = `<div class="egress_loadingMessage">
+            <table>
+                <tr >
+                    <td style="width:60px;">
+                        <div class="preloader pls-egress-orange" style="display: inline-block;">
+                            <svg class="pl-circular" viewBox="25 25 50 50">
+                                <circle class="plc-path" cx="50" cy="50" r="20" />
+                            </svg>
+                        </div>
+                    </td>
+                    <td style="vertical-align:middle;">
+                        Decrypting message...
+                    </td>
+                </tr>
+            </table>
+            <div>`;

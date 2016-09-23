@@ -10,7 +10,7 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(sdk => {
                             const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
 
                             $(event.messageView.getBodyElement()).find("div > div > table").
-                                replaceWith("<div class='egress_loadingMessage'>Decrypting message... </div>");
+                                replaceWith(loading_message);
 
                             files[i].getDownloadURL().then(e => {
                                 $.get({
@@ -18,7 +18,7 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(sdk => {
                                     })
                                     .done(xmlHttp => {
                                         $(event.messageView.getBodyElement()).find('.egress_loadingMessage').
-                                            replaceWith(switch_decrypt_header);
+                                            replaceWith(switch_decrypt_header.replace("[[DECRYPTED]]",moment().format('MMMM Do YYYY, h:mm:ss a')));
 
                                         $(event.messageView.getBodyElement()).find('.egress_loadingMessage').
                                             append("<div>" + decrypt(xmlHttp) + "</div>");
