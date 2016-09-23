@@ -41,7 +41,7 @@ const switch_html = `<table width="100%" border="0" style="border: 1px solid #DA
     </table>`;
 
 const switch_decrypt_header = `<div class="egress_loadingMessage" style="padding:3px;font-size:10pt;font-family:Arial, Helvetica, sans-serif; margin-bottom:0.5em;">
-<table id="deliveredEgressSwitch" border="0" cellspacing="0" cellpadding="0" width="98%" style='width:98%;border-collapse:collapse'><tr><td width="100%" valign="top" style='width:100%;background:#FF6633;padding:3.75pt 5.4pt 3.75pt 5.4pt'>
+<table id="deliveredEgressSwitch" border="0" cellspacing="0" cellpadding="0" width="98%" style='width:98%;border-collapse:collapse'><tr><td width="100%" valign="top" style='width:100%;background:#FF6633;padding:0 7pt 5.75pt 5.4pt'>
 <p align="center" style="margin-bottom:.0001pt;text-align:center">
     <span style='font-size:10.0pt;font-family:"Arial","sans-serif";color:white'>This email, created by [[SWITCHID]], has been securely delivered using Egress Switch and was decrypted on [[DECRYPTED]]</span>
 </p></td></tr></table></div>`;
