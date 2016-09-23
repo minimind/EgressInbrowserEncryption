@@ -12,6 +12,7 @@
         "inboxsdk.js",
         "jquery-3.1.0.min.js",
         "constants.js",
+        "encryption.js",
         "content.js"
       ],
       "run_at": "document_end"
