@@ -3,6 +3,9 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(sdk => {
             messageView.on('load', event => {
                 if (event.messageView.getViewState() == "EXPANDED") {
                     const files = event.messageView.getFileAttachmentCardViews();
+                    //debugger;
+
+                    
 
                     for (let i = 0; i < files.length; i++) {
                         if (files[i].getAttachmentType() == "FILE" && files[i].getTitle().indexOf(".switch") > -1) {
@@ -25,6 +28,8 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(sdk => {
 
                                         $(event.messageView.getBodyElement()).find('.egress_loadingMessage').
                                             append("<div>" + decrypt(xmlHttp) + "</div>");
+
+                                        $(event.messageView.getBodyElement()).parent().find(".hq").hide();//hide attachments area, temp
                                     })
                                     .fail(() => {
                                         console.log("Error loading file...");
