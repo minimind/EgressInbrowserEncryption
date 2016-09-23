@@ -12,6 +12,7 @@
         "inboxsdk.js",
         "jquery-3.1.0.min.js",
         "constants.js",
+        "moment.min.js",
         "encryption.js",
         "content.js"
       ],
