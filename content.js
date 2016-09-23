@@ -40,7 +40,7 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(sdk => {
             // a compose view has come into existence, do something with it!
             composeView.addButton({
                 title: "Encode with switch",
-                iconUrl: 'http://s12.postimg.org/6da0b7cnx/Logomakr_19_MEHn.png',
+                iconUrl: 'http://egress-devops-files.s3.amazonaws.com/Logomakr_19MEHn.png',
                 onClick: event => {
                     const html = switch_html;
                     const blob = new File([encrypt(event.composeView.getHTMLContent())], "encrypted.switch", {type: 'application/octet-binary'});

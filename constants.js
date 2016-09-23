@@ -13,7 +13,7 @@ const switch_html = `<table width="100%" border="0" style="border: 1px solid #DA
                         <td width="160" style="text-align:center;vertical-align:middle;""><p><img width="128" height="128" src="http://switch-image-hosting.s3.amazonaws.com/secure-email.gif" /></p></td>
                         <td style="vertical-align:middle;">
                             <p style="font-size: .9em;font-family: Calibri, Arial, Helvetica, sans-serif;">If you have Switch installed, simply open the attachment.</p>
-                            <p style="font-size: .9em;font-family: Calibri, Arial, Helvetica, sans-serif;">Alternatively, forward this email to <a href="#" style="text-decoration: none; color: #000000; cursor: default;">[[READEROPENEMAIL]]</a> or visit <a href="[[READERURL]]">Switch Web Access</a>.</p>
+                            <p style="font-size: .9em;font-family: Calibri, Arial, Helvetica, sans-serif;">Alternatively, forward this email to <a href="#" style="text-decoration: none; color: #000000; cursor: default;">open@switch.egress.com</a> or visit <a href="https://reader.egress.com">Switch Web Access</a>.</p>
                         </td>
                     </tr>
                 </table>
