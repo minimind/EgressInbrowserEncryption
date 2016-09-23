@@ -1,5 +1,5 @@
 {
-  "name": "Egress Inbrowser Encryption",
+  "name": "Egress Inb-rowser Encryption",
   "description": "Extension to employ Egress Switch in encrypt within the browser",
   "version": "0.1",
   "content_scripts": [
