@@ -18,7 +18,7 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(sdk => {
                                     })
                                     .done(xmlHttp => {
                                         $(event.messageView.getBodyElement()).find('.egress_loadingMessage').
-                                            replaceWith("<div class='egress_loadingMessage'>Decrypted message reads:</div>");
+                                            replaceWith(switch_decrypt_header);
 
                                         $(event.messageView.getBodyElement()).find('.egress_loadingMessage').
                                             append("<div>" + xmlHttp + "</div>");
