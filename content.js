@@ -38,6 +38,10 @@ InboxSDK.load('1', 'sdk_Hackotron-BE_a4e83dfe8a').then(sdk => {
 
         sdk.Compose.registerComposeViewHandler(composeView => {
             // a compose view has come into existence, do something with it!
+
+            var b = composeView.getBodyElement();
+            $(b).closest(".I5").find("form").append(classification_dropdown);
+            
             composeView.addButton({
                 title: "Encode with switch",
                 iconUrl: 'http://egress-devops-files.s3.amazonaws.com/Logomakr_19MEHn.png',

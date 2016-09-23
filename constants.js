@@ -63,3 +63,13 @@ const loading_message = `<div class="egress_loadingMessage">
                 </tr>
             </table>
             <div>`;
+
+const classification_dropdown = `
+<div id="" class="aoD az6">
+    <label for="" style="color: #777">Classification: <label>
+  
+    <select style="min-width: 300px">
+        <option value="unlcassified">Unclassified.</option>
+        <option value="protected">Encrypt Message and Attachments.</option>
+    </select>
+</div>`;
