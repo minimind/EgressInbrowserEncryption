@@ -1,5 +1,5 @@
 {
-  "name": "Egress Inb-rowser Encryption",
+  "name": "Egress Inbrowser Encryption",
   "description": "Extension to employ Egress Switch in encrypt within the browser",
   "version": "0.1",
   "content_scripts": [
@@ -12,6 +12,7 @@
         "inboxsdk.js",
         "jquery-3.1.0.min.js",
         "constants.js",
+        "encryption.js",
         "content.js"
       ],
       "run_at": "document_end"
